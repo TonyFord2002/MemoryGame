@@ -1,11 +1,27 @@
 //Start game button
 
-
 //List instructions or skip instructions if playing again
+class Player1{
+    constructor(score, turn, choice1, choice2, win){
+    this.score=score
+    this.turn=true
+    this.choice1=choice1
+    this.choice2=choice2
+    this.win=ture
+}
+}
 
-
+class Player2{
+    constructor(score, turn, choice1, choice2, win){
+        this.score=score
+        this.turn=true
+        this.choice1=choice1
+        this.choice2=choice2
+        this.win=true
+    }
+}
 //Make cards
-const cards =[
+const cards=[
 {
     name: 'are',
     img: 'images/Are.png'},
@@ -56,11 +72,11 @@ const cards =[
     img: 'images/Out.png'},
 ]
 
-//Make gameboard
+cards.sort(() => 0.5 - Math.random())
 
 
 
-//Display the upsidedown cards
+//Flip over cards once clicked
 let myImage1a = document.querySelector('.word1a');
 myImage1a.onclick = function() {
   let mySrc = myImage1a.getAttribute('src');
@@ -221,12 +237,19 @@ myImage8b.onclick = function() {
   }
 }
 
-
-
-//Button click on two cards to turn over
-
+let first = new Player1
+let second = new Player2
+let cardsChosen =[]
+let cardsWon = []
 
 //Compare the two cards and check for a match
+function comparecards(choice1, choice2){
+    while(first.turn === true){
+    if(choice1===choice2){
+        
+    }
+}
+}
 
 
 //If a match increase score on that player and go again
