@@ -21,7 +21,7 @@ class Player2{
     }
 }
 //Make cards
-const cards=[
+const cardsArray=[
 {
     name: 'are',
     img: 'images/Are.png'},
@@ -72,16 +72,26 @@ const cards=[
     img: 'images/Out.png'},
 ]
 
-cards.sort(() => 0.5 - Math.random())
-
-
-
-//Flip over cards once clicked
+function randomCards() {
+    for (let i = cardsArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = cardsArray[i];
+        cardsArray[i] = cardsArray[j];
+        cardsArray[j] = temp;
+        //document.querySelector('.grid').innerHTML = cardsArray.img[i]
+    }
+    return cardsArray
+    console.log(cards);
+    }
+    
+    randomCards()
+        
+        //Flip over cards once clicked
 let myImage1a = document.querySelector('.word1a');
 myImage1a.onclick = function() {
   let mySrc = myImage1a.getAttribute('src');
   if(mySrc === 'images/Back.png') {
-    myImage1a.setAttribute ('src','images/Are.png');
+    myImage1a.setAttribute ('src', cardsArray[0].img);
   } else {
     myImage1a.setAttribute ('src','images/Back.png');
   }
@@ -91,7 +101,7 @@ let myImage1b = document.querySelector('.word1b');
 myImage1b.onclick = function() {
   let mySrc = myImage1b.getAttribute('src');
   if(mySrc === 'images/Back.png') {
-    myImage1b.setAttribute ('src','images/Are.png');
+    myImage1b.setAttribute ('src', cardsArray[1].img);
   } else {
     myImage1b.setAttribute ('src','images/Back.png');
   }
@@ -184,7 +194,7 @@ myImage6a.onclick = function() {
     myImage6a.setAttribute ('src','images/Like.png');
   } else {
     myImage6a.setAttribute ('src','images/Back.png');
-  }
+}
 }
 
 let myImage6b = document.querySelector('.word6b');
@@ -192,9 +202,9 @@ myImage6b.onclick = function() {
   let mySrc = myImage6b.getAttribute('src');
   if(mySrc === 'images/Back.png') {
     myImage6b.setAttribute ('src','images/Like.png');
-  } else {
+} else {
     myImage6b.setAttribute ('src','images/Back.png');
-  }
+}
 }
 
 let myImage7a = document.querySelector('.word7a');
@@ -222,7 +232,7 @@ myImage8a.onclick = function() {
   let mySrc = myImage8a.getAttribute('src');
   if(mySrc === 'images/Back.png') {
     myImage8a.setAttribute ('src','images/Out.png');
-  } else {
+} else {
     myImage8a.setAttribute ('src','images/Back.png');
   }
 }
