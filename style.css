@@ -15,6 +15,7 @@ body{
     margin-left: 36.5%;
     column-gap: 2px;
     row-gap: 2px;
+    border: solid 5px black;
 } 
 
   img:hover {
@@ -35,3 +36,14 @@ body{
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
   }  
+
+  #startGame{
+    margin: auto;
+    text-align: center;
+    background-color: chartreuse;
+  }
+
+  #display{
+    text-align: center;
+    border: solid 5px red;
+  }
