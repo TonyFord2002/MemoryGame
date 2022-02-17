@@ -37,82 +37,82 @@ const cardsArray=[
     name: 'are',
     img: 'images/Are.png',
     inPlay: false,
-    location:""},
+    place:""},
 {    
     name: 'are',
     img: 'images/Are.png',
     inPlay: false,
-    location:""},
+    place:""},
 {
     name: 'bad',
     img: 'images/Bad.png',
     inPlay: false,
-    location:""},
+    place:""},
 {    
     name: 'bad',
     img: 'images/Bad.png',
     inPlay: false,
-    location:""},
+    place:""},
 {
     name: 'did',
     img: 'images/Did.png',
     inPlay: false,
-    location:""},
+    place:""},
 { 
     name: 'did',
     img: 'images/Did.png',
     inPlay: false,
-    location:""},
+    place:""},
 {
     name: 'has',
     img: 'images/Has.png',
     inPlay: false,
-    location:""},
+    place:""},
 {    
     name: 'has',
     img: 'images/Has.png',
     inPlay: false,
-    location:""},
+    place:""},
 {
     name: 'have',
     img: 'images/Have.png',
     inPlay: false,
-    location:""},
+    place:""},
 {
     name: 'have',
     img: 'images/Have.png',
     inPlay: false,
-    location:""},
+    place:""},
 {
     name: 'like',
     img: 'images/Like.png',
     inPlay: false,
-    location:""},
+    place:""},
 {
     name: 'like',
     img: 'images/Like.png',
     inPlay: false,
-    location:""},
+    place:""},
 {
     name: 'now',
     img: 'images/Now.png',
     inPlay: false,
-    location:""},
+    place:""},
 {
     name: 'now',
     img: 'images/Now.png',
     inPlay: false,
-    location:""},
+    place:""},
 {
     name: 'out',
     img: 'images/Out.png',
     inPlay: false,
-    location:""},
+    place:""},
 {
     name: 'out',
     img: 'images/Out.png',
     inPlay: false,
-    location:""}
+    place:""}
 ]
 
 let first = new Player1
@@ -135,19 +135,14 @@ function randomCards() {
 randomCards()
 
 
-//Flip over cards once clicked
-
-
 let myImage1a = document.querySelector('.word1a');
 myImage1a.onclick = function() {
         let mySrc = myImage1a.getAttribute('src');
         if(mySrc === 'images/Back.png') {
     myImage1a.setAttribute ('src', cardsArray[0].img);
-    cardsArray[0].location = '.word1a';
+    cardsArray[0].place = '.word1a';
     cardsArray[0].inPlay = true;
-    console.log(cardsChosen)
     cardsChosen.push(cardsArray[0])
-    console.log(cardsChosen)
     compareCards();
 } else {
     myImage1a.setAttribute ('src','images/Back.png');
@@ -159,7 +154,7 @@ myImage1b.onclick = function() {
     let mySrc = myImage1b.getAttribute('src');
     if(mySrc === 'images/Back.png') {
         myImage1b.setAttribute ('src', cardsArray[1].img);
-        cardsArray[1].location = '.word1b';
+        cardsArray[1].place = '.word1b';
         cardsArray[1].inPlay = true;
         cardsChosen.push(cardsArray[1])
         compareCards();
@@ -173,7 +168,7 @@ myImage2a.onclick = function() {
     let mySrc = myImage2a.getAttribute('src');
     if(mySrc === 'images/Back.png') {
         myImage2a.setAttribute ('src',cardsArray[2].img);
-        cardsArray[2].location = '.word2a';
+        cardsArray[2].place = '.word2a';
         cardsArray[2].inPlay = true;
         cardsChosen.push(cardsArray[2])
         compareCards();
@@ -187,7 +182,7 @@ myImage2b.onclick = function() {
     let mySrc = myImage2b.getAttribute('src');
   if(mySrc === 'images/Back.png') {
     myImage2b.setAttribute ('src',cardsArray[3].img);
-    cardsArray[3].location = '.word2b';
+    cardsArray[3].place = '.word2b';
     cardsArray[3].inPlay = true;
     cardsChosen.push(cardsArray[3])
     compareCards();
@@ -201,7 +196,7 @@ myImage3a.onclick = function() {
     let mySrc = myImage3a.getAttribute('src');
     if(mySrc === 'images/Back.png') {
         myImage3a.setAttribute ('src',cardsArray[4].img);
-        cardsArray[4].location = '.word3a';
+        cardsArray[4].place = '.word3a';
         cardsArray[4].inPlay = true;
         cardsChosen.push(cardsArray[4])
         compareCards();
@@ -215,8 +210,9 @@ myImage3b.onclick = function() {
     let mySrc = myImage3b.getAttribute('src');
     if(mySrc === 'images/Back.png') {
         myImage3b.setAttribute ('src',cardsArray[5].img);
-        cardsArray[5].location = '.word3b';
+        cardsArray[5].place = '.word3b';
         cardsArray[5].inPlay = true;
+        cardsChosen.push(cardsArray[5])
         compareCards();
   } else {
     myImage3b.setAttribute ('src','images/Back.png');
@@ -228,8 +224,9 @@ myImage4a.onclick = function() {
     let mySrc = myImage4a.getAttribute('src');
     if(mySrc === 'images/Back.png') {
         myImage4a.setAttribute ('src',cardsArray[6].img);
-        cardsArray[6].location = '.word4a';
+        cardsArray[6].place = '.word4a';
         cardsArray[6].inPlay = true;
+        cardsChosen.push(cardsArray[6])
         compareCards();
     } else {
         myImage4a.setAttribute ('src','images/Back.png');
@@ -241,8 +238,9 @@ myImage4b.onclick = function() {
     let mySrc = myImage4b.getAttribute('src');
     if(mySrc === 'images/Back.png') {
         myImage4b.setAttribute ('src',cardsArray[7].img);
-        cardsArray[7].location = '.word4b';
+        cardsArray[7].place = '.word4b';
         cardsArray[7].inPlay = true;
+        cardsChosen.push(cardsArray[7])
     compareCards();
 } else {
     myImage4b.setAttribute ('src','images/Back.png');
@@ -254,8 +252,9 @@ myImage5a.onclick = function() {
     let mySrc = myImage5a.getAttribute('src');
   if(mySrc === 'images/Back.png') {
       myImage5a.setAttribute ('src',cardsArray[8].img);
-      cardsArray[8].location = '.word5a';
+      cardsArray[8].place = '.word5a';
       cardsArray[8].inPlay = true;
+      cardsChosen.push(cardsArray[8])
       compareCards();
     } else {
     myImage5a.setAttribute ('src','images/Back.png');
@@ -267,8 +266,9 @@ myImage5b.onclick = function() {
     let mySrc = myImage5b.getAttribute('src');
     if(mySrc === 'images/Back.png') {
     myImage5b.setAttribute ('src',cardsArray[9].img);
-    cardsArray[9].location = '.word5b';
+    cardsArray[9].place = '.word5b';
     cardsArray[9].inPlay = true;
+    cardsChosen.push(cardsArray[9])
     compareCards();
   } else {
       myImage5b.setAttribute ('src','images/Back.png');
@@ -280,8 +280,9 @@ myImage6a.onclick = function() {
     let mySrc = myImage6a.getAttribute('src');
     if(mySrc === 'images/Back.png') {
         myImage6a.setAttribute ('src',cardsArray[10].img);
-        cardsArray[10].location = '.word6a';
+        cardsArray[10].place = '.word6a';
         cardsArray[10].inPlay = true;
+        cardsChosen.push(cardsArray[10])
         compareCards();
     } else {
         myImage6a.setAttribute ('src','images/Back.png');
@@ -293,8 +294,9 @@ myImage6b.onclick = function() {
   let mySrc = myImage6b.getAttribute('src');
   if(mySrc === 'images/Back.png') {
     myImage6b.setAttribute ('src',cardsArray[11].img);
-    cardsArray[11].location = '.word6b';
+    cardsArray[11].place = '.word6b';
     cardsArray[11].inPlay = true;
+    cardsChosen.push(cardsArray[11])
     compareCards();
 } else {
     myImage6b.setAttribute ('src','images/Back.png');
@@ -306,8 +308,9 @@ myImage7a.onclick = function() {
   let mySrc = myImage7a.getAttribute('src');
   if(mySrc === 'images/Back.png') {
     myImage7a.setAttribute ('src',cardsArray[12].img);
-    cardsArray[12].location = '.word7a';
+    cardsArray[12].place = '.word7a';
     cardsArray[12].inPlay = true;
+    cardsChosen.push(cardsArray[12])
     compareCards();
   } else {
       myImage7a.setAttribute ('src','images/Back.png');
@@ -319,8 +322,9 @@ myImage7b.onclick = function() {
   let mySrc = myImage7b.getAttribute('src');
   if(mySrc === 'images/Back.png') {
       myImage7b.setAttribute ('src',cardsArray[13].img);
-      cardsArray[13].location = '.word7b';
+      cardsArray[13].place = '.word7b';
       cardsArray[13].inPlay = true;
+      cardsChosen.push(cardsArray[13])
       compareCards();
   } else {
     myImage7b.setAttribute ('src','images/Back.png');
@@ -332,8 +336,9 @@ myImage8a.onclick = function() {
   let mySrc = myImage8a.getAttribute('src');
   if(mySrc === 'images/Back.png') {
     myImage8a.setAttribute ('src',cardsArray[14].img);
-    cardsArray[14].location = '.word8a';
+    cardsArray[14].place = '.word8a';
     cardsArray[14].inPlay = true;
+    cardsChosen.push(cardsArray[14])
     compareCards();
 } else {
     myImage8a.setAttribute ('src','images/Back.png');
@@ -345,7 +350,7 @@ myImage8b.onclick = function() {
   let mySrc = myImage8b.getAttribute('src'); 
   if(mySrc === 'images/Back.png') {
     myImage8b.setAttribute ('src',cardsArray[15].img);
-    cardsArray[15].location = '.word8b';
+    cardsArray[15].place = '.word8b';
     cardsArray[15].inPlay = true;
     cardsChosen.push(cardsArray[15])
     compareCards();
@@ -359,60 +364,57 @@ myImage8b.onclick = function() {
 //cardsChosen = Object.values(totalCards).map(c => c.inPlay === true)
 
 
-// cardsChosen = cardsArray.map(selectFewerProps)
-
-// function selectFewerProps(cardArray){
-//     const {name, inPlay} = cardArray;
-//     return {name, inPlay};
-//   }
-
-
-
-//Compare the two cards and check for a match
-function compareCards(){
-    while(first.turn === true && cardsChosen.length === 2){
-        //if (cardsChosen.length === 2){
+     var place1
+     var place2
+    
+    //Compare the two cards and check for a match
+    function compareCards(){
+        while(first.turn === true && cardsChosen.length === 2){
           if(cardsChosen[0].name === cardsChosen[1].name){
             first.score++
-            
+            console.log(cardsChosen[0].place)
+            console.log(cardsChosen[1].place)
+            cardsChosen =[]
+            document.querySelector('#result1').innerHTML = `${first.score}`
         
             }else{
-                first.turn = false
+                //first.turn = false
+                setTimeout(turnCardsBackOver, 2000)
                 cardsChosen[0].inPlay = false
                 cardsChosen[1].inPlay = false
-                setTimeout(turnCardsBackOver, 1000)
+                console.log(cardsChosen[0].place)
+                console.log(cardsChosen[1].place)
+                cardsChosen = []
+                document.querySelector('#result2').innerHTML = "not a match"
     }
-//}
 }
-while(second.turn === true && cardsChosen.length === 2){
-    //if (cardsChosen.length === 2){
-      if(cardsChosen[0].name === cardsChosen[1].name){
-        second.score++
+}
+// while(second.turn === true && cardsChosen.length === 2){
+//     //if (cardsChosen.length === 2){
+//       if(cardsChosen[0].name === cardsChosen[1].name){
+//         second.score++
      
 
-        }else{
-            second.turn = false
-            cardsChosen[0].inPlay = false
-            cardsChosen[1].inPlay = false
-            setTimeout(turnCardsBackOver, 1000)
-            }
-}
-}
-//}
+//         }else{
+//             second.turn = false
+//             cardsChosen[0].inPlay = false
+//             cardsChosen[1].inPlay = false
+//             setTimeout(turnCardsBackOver, 1000)
+//             }
+// }
+// }
+// }
 
 
-
-function turnCardsBackOver(){
+function turnCardsBackOver(){    
     
-    document.querySelector(cardsChosen[0].location).setAttribute('src', 'images/Back.png')
-    //cardsChosen[0]
-    //cardsChosen[1].setAttribute('src', 'images/Back.png')
-    document.querySelector(cardsChosen[1].location).setAttribute('src', 'images/Back.png')
-    cardsChosen = []
+   document.querySelector('.word1a').setAttribute ('src', 'images/Back.png')
+   document.querySelector(cardsChosen[1].place).setAttribute ('src', 'images/Back.png')
 }
 
-document.querySelector('#result1').innerHTML = `${first.score}`
-document.querySelector('#result2').innerHTML = `${second.score}`
+
+
+//document.querySelector('#result2').innerHTML = `${second.score}`
 
 
 //If a match increase score on that player and go again
