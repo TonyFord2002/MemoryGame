@@ -9,6 +9,28 @@ function instructions(){
 var btn = document.getElementById('startGame')
 btn.addEventListener('click', instructions)
 
+function getName() {
+    do {
+      var name = prompt("Player 1 please enter your name");
+    }
+    while (name.length < 2);
+    document.getElementById("player1").innerHTML = name;
+  }
+  
+  getName();
+
+
+function getName2() {
+    do {
+      var name2 = prompt("Player 2 please enter your name");
+    }
+    while (name2.length < 3);
+    document.getElementById("player2").innerHTML = name2;
+  }
+  
+  getName2();
+  
+
 
 
 //List instructions or skip instructions if playing again
@@ -381,9 +403,9 @@ function turnCardsBackOver(){
 }
 function winner(){
     if(cardsWon.length === 16 && first.score > second.score){
-        alert('Player 1 wins!')
+        alert(document.getElementById('#player1') + ' wins!')
     }else if(cardsWon.length === 16 && first.score < second.score){
-        alert('Player 2 wins!')
+        alert(document.getElementById('#player2') + ' wins!')
     }else if(cardsWon.length === 16 && first.score == second.score){
         alert('Both players win!')
     }
@@ -401,6 +423,8 @@ function reset(){
     document.querySelector('#result1').innerHTML = `${first.score}`
     document.querySelector('#result2').innerHTML = `${second.score}`
     randomCards()
+    getName()
+    getName2()
 }
 
 var resetGame = document.querySelector('#startOver')
