@@ -89,7 +89,7 @@ const cardsArray=[
     img: 'images/Like.png',
     inPlay: false,
     place:""},
-{
+    {
     name: 'now',
     img: 'images/Now.png',
     inPlay: false,
@@ -104,8 +104,8 @@ const cardsArray=[
     img: 'images/Out.png',
     inPlay: false,
     place:""},
-{
-    name: 'out',
+    {
+        name: 'out',
     img: 'images/Out.png',
     inPlay: false,
     place:""}
@@ -115,6 +115,8 @@ let first = new Player1(0, true, false)
 let second = new Player2(0, false, false)
 let cardsWon = []
 let cardsChosen = []
+let place1=''
+let place2=''
 
 function randomCards() {
     for (let i = cardsArray.length - 1; i > 0; i--) {
@@ -137,10 +139,7 @@ myImage1a.onclick = function() {
     cardsArray[0].place = '.word1a';
     cardsArray[0].inPlay = true;
     cardsChosen.push(cardsArray[0])
-    //compareCards2();
     compareCards();
-// } else {
-//     myImage1a.setAttribute ('src','images/Back.png');
 }
 }
 
@@ -152,11 +151,8 @@ myImage1b.onclick = function() {
         cardsArray[1].place = '.word1b';
         cardsArray[1].inPlay = true;
         cardsChosen.push(cardsArray[1])
-       //compareCards2();
         compareCards();
-    } else {
-        myImage1b.setAttribute ('src','images/Back.png');
-    }
+    } 
 }
 
 let myImage2a = document.querySelector('.word2a');
@@ -168,9 +164,7 @@ myImage2a.onclick = function() {
         cardsArray[2].inPlay = true;
         cardsChosen.push(cardsArray[2])
         compareCards();
-    } else {
-        myImage2a.setAttribute ('src','images/Back.png');
-    }
+    } 
 }
 
 let myImage2b = document.querySelector('.word2b');
@@ -182,9 +176,7 @@ myImage2b.onclick = function() {
     cardsArray[3].inPlay = true;
     cardsChosen.push(cardsArray[3])
     compareCards();
-  } else {
-      myImage2b.setAttribute ('src','images/Back.png');
-    }
+  } 
 }
 
 let myImage3a = document.querySelector('.word3a');
@@ -196,9 +188,7 @@ myImage3a.onclick = function() {
         cardsArray[4].inPlay = true;
         cardsChosen.push(cardsArray[4])
         compareCards();
-    } else {
-        myImage3a.setAttribute ('src','images/Back.png');
-    }
+    } 
 }
 
 let myImage3b = document.querySelector('.word3b');
@@ -210,9 +200,7 @@ myImage3b.onclick = function() {
         cardsArray[5].inPlay = true;
         cardsChosen.push(cardsArray[5])
         compareCards();
-  } else {
-    myImage3b.setAttribute ('src','images/Back.png');
-  }
+  } 
 }
 
 let myImage4a = document.querySelector('.word4a');
@@ -224,9 +212,7 @@ myImage4a.onclick = function() {
         cardsArray[6].inPlay = true;
         cardsChosen.push(cardsArray[6])
         compareCards();
-    } else {
-        myImage4a.setAttribute ('src','images/Back.png');
-    }
+    } 
 }
 
 let myImage4b = document.querySelector('.word4b');
@@ -238,9 +224,7 @@ myImage4b.onclick = function() {
         cardsArray[7].inPlay = true;
         cardsChosen.push(cardsArray[7])
     compareCards();
-} else {
-    myImage4b.setAttribute ('src','images/Back.png');
-}
+} 
 }
 
 let myImage5a = document.querySelector('.word5a');
@@ -252,9 +236,7 @@ myImage5a.onclick = function() {
       cardsArray[8].inPlay = true;
       cardsChosen.push(cardsArray[8])
       compareCards();
-    } else {
-    myImage5a.setAttribute ('src','images/Back.png');
-  }
+    } 
 }
 
 let myImage5b = document.querySelector('.word5b');
@@ -266,9 +248,7 @@ myImage5b.onclick = function() {
     cardsArray[9].inPlay = true;
     cardsChosen.push(cardsArray[9])
     compareCards();
-  } else {
-      myImage5b.setAttribute ('src','images/Back.png');
-    }
+  } 
 }
 
 let myImage6a = document.querySelector('.word6a');
@@ -280,9 +260,7 @@ myImage6a.onclick = function() {
         cardsArray[10].inPlay = true;
         cardsChosen.push(cardsArray[10])
         compareCards();
-    } else {
-        myImage6a.setAttribute ('src','images/Back.png');
-}
+    } 
 }
 
 let myImage6b = document.querySelector('.word6b');
@@ -294,9 +272,7 @@ myImage6b.onclick = function() {
     cardsArray[11].inPlay = true;
     cardsChosen.push(cardsArray[11])
     compareCards();
-} else {
-    myImage6b.setAttribute ('src','images/Back.png');
-}
+} 
 }
 
 let myImage7a = document.querySelector('.word7a');
@@ -308,9 +284,7 @@ myImage7a.onclick = function() {
     cardsArray[12].inPlay = true;
     cardsChosen.push(cardsArray[12])
     compareCards();
-  } else {
-      myImage7a.setAttribute ('src','images/Back.png');
-  }
+  } 
 }
 
 let myImage7b = document.querySelector('.word7b');
@@ -322,9 +296,7 @@ myImage7b.onclick = function() {
       cardsArray[13].inPlay = true;
       cardsChosen.push(cardsArray[13])
       compareCards();
-  } else {
-    myImage7b.setAttribute ('src','images/Back.png');
-}
+  } 
 }
 
 let myImage8a = document.querySelector('.word8a');
@@ -336,9 +308,7 @@ myImage8a.onclick = function() {
     cardsArray[14].inPlay = true;
     cardsChosen.push(cardsArray[14])
     compareCards();
-} else {
-    myImage8a.setAttribute ('src','images/Back.png');
-}
+} 
 }
 
 let myImage8b = document.querySelector('.word8b');
@@ -350,13 +320,9 @@ myImage8b.onclick = function() {
     cardsArray[15].inPlay = true;
     cardsChosen.push(cardsArray[15])
     compareCards();
-} else {
-    myImage8b.setAttribute('src','images/Back.png');
-}
+} 
 }
 
-let place1=''
-let place2=''
 
     //Compare the two cards and check for a match
     function compareCards(){
@@ -368,6 +334,7 @@ let place2=''
             document.querySelector('#result1').innerHTML = `${first.score}`
             cardsWon.push(cardsChosen[0])
             cardsWon.push(cardsChosen[1])
+            setTimeOut(winner, 500)
 
         }else{
             console.log('p1')
@@ -391,6 +358,7 @@ while(second.turn === true && cardsChosen.length === 2){
         document.querySelector('#result2').innerHTML = `${second.score}`
         cardsWon.push(cardsChosen[0])
         cardsWon.push(cardsChosen[1])
+        setTimeout(winner, 500)
 
         }else{
             console.log('p2')
@@ -416,15 +384,15 @@ function winner(){
         alert('Player 1 wins!')
     }else if(cardsWon.length === 16 && first.score < second.score){
         alert('Player 2 wins!')
-    }else{
+    }else if(cardsWon.length === 16 && first.score == second.score){
         alert('Both players win!')
     }
 }
 
 function reset(){
-    let newBoard = document.querySelectorAll('.card')
-    newBoard.forEach(e => {
-        e.setAttribute('src', 'images/Back.png')
+   let newBoard = document.querySelectorAll('.card')
+   newBoard.forEach(e => {
+       e.setAttribute('src', 'images/Back.png')
     });
     cardsChosen =[]
     cardsWon =[]
