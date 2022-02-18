@@ -5,16 +5,18 @@ function instructions(){
     alert("If they don't then it is Player 2's turn to pick two cards.")
     alert("The game ends when all cards have been matched up.")
 }
+var name1
+var name2
 
 var btn = document.getElementById('startGame')
 btn.addEventListener('click', instructions)
 
 function getName() {
     do {
-      var name = prompt("Player 1 please enter your name");
+      name1 = prompt("Player 1 please enter your name");
     }
-    while (name.length < 2);
-    document.getElementById("player1").innerHTML = name;
+    while (name1.length < 2);
+    document.getElementById("player1").innerHTML = name1;
   }
   
   getName();
@@ -22,7 +24,7 @@ function getName() {
 
 function getName2() {
     do {
-      var name2 = prompt("Player 2 please enter your name");
+      name2 = prompt("Player 2 please enter your name");
     }
     while (name2.length < 3);
     document.getElementById("player2").innerHTML = name2;
@@ -360,7 +362,7 @@ myImage8b.onclick = function() {
 
         }else{
             console.log('p1')
-            setTimeout(turnCardsBackOver, 2000)
+            setTimeout(turnCardsBackOver, 1500)
             cardsChosen[0].inPlay = false
             cardsChosen[1].inPlay = false
             place1 = cardsChosen[0].place
@@ -384,7 +386,7 @@ while(second.turn === true && cardsChosen.length === 2){
 
         }else{
             console.log('p2')
-            setTimeout(turnCardsBackOver, 2000)
+            setTimeout(turnCardsBackOver, 1500)
             cardsChosen[0].inPlay = false
             cardsChosen[1].inPlay = false
             place1 = cardsChosen[0].place
@@ -403,9 +405,9 @@ function turnCardsBackOver(){
 }
 function winner(){
     if(cardsWon.length === 16 && first.score > second.score){
-        alert(document.getElementById('#player1') + ' wins!')
+        alert(JSON.stringify(name1) + ' wins!')
     }else if(cardsWon.length === 16 && first.score < second.score){
-        alert(document.getElementById('#player2') + ' wins!')
+        alert(JSON.stringify(name2) + ' wins!')
     }else if(cardsWon.length === 16 && first.score == second.score){
         alert('Both players win!')
     }

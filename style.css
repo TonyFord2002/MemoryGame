@@ -1,9 +1,16 @@
 body{
-    background-color: aqua;
+    background-color: rgb(158, 241, 155);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;  
     
+}
+
+h1{
+  color:rgb(59, 60, 129);
+  font-family: cursive;
+
+
 }
 
    .grid{
@@ -14,7 +21,6 @@ body{
     margin-left: 36.5%;
     column-gap: 2px;
     row-gap: 2px;
-    border: solid 5px black;
 } 
 
   img:hover {
@@ -36,13 +42,55 @@ body{
     100% { transform: translate(1px, -2px) rotate(-1deg); }
   }  
 
-  #startGame{
-    margin: auto;
-    text-align: center;
-    background-color: chartreuse;
-  }
 
   #display{
     text-align: center;
-    border: solid 5px red;
   }
+
+  #startGame{
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.3em 0.3em 0;
+    border-radius:2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#FFFFFF;
+    background-color:rgba(111, 0, 255, 0.5);
+    text-align:center;
+    transition: all 0.2s;
+    }
+    #startGame:hover{
+    background-color:rgb(111, 0, 255);
+    }
+    @media all and (max-width:30em){
+    a.button3{
+    display:block;
+    margin:0.2em auto;
+    }
+    }
+
+    #startOver{
+      display:inline-block;
+      padding:0.3em 1.2em;
+      margin:0 0.3em 0.3em 0;
+      border-radius:2em;
+      box-sizing: border-box;
+      text-decoration:none;
+      font-family:'Roboto',sans-serif;
+      font-weight:300;
+      color:#FFFFFF;
+      background-color:rgba(111, 0, 255, 0.5);
+      text-align:center;
+      transition: all 0.2s;
+      }
+      #startOver:hover{
+      background-color:rgba(111, 0, 255);
+      }
+      @media all and (max-width:30em){
+      a.button3{
+      display:block;
+      margin:0.2em auto;
+      }
+      }
