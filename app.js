@@ -354,7 +354,6 @@ myImage8b.onclick = function() {
     function compareCards(){
         while(first.turn === true && cardsChosen.length === 2){
           if(cardsChosen[0].name === cardsChosen[1].name){
-            console.log('player1')
             first.score++
             cardsChosen = []
             document.querySelector('#result1').innerHTML = `${first.score}`
@@ -363,7 +362,6 @@ myImage8b.onclick = function() {
             setTimeOut(winner, 500)
 
         }else{
-            console.log('p1')
             setTimeout(turnCardsBackOver, 1500)
             cardsChosen[0].inPlay = false
             cardsChosen[1].inPlay = false
@@ -378,7 +376,6 @@ myImage8b.onclick = function() {
 while(second.turn === true && cardsChosen.length === 2){
     
       if(cardsChosen[0].name === cardsChosen[1].name){
-        console.log('player2')
         second.score++
         cardsChosen = []
         document.querySelector('#result2').innerHTML = `${second.score}`
@@ -387,7 +384,6 @@ while(second.turn === true && cardsChosen.length === 2){
         setTimeout(winner, 500)
 
         }else{
-            console.log('p2')
             setTimeout(turnCardsBackOver, 1500)
             cardsChosen[0].inPlay = false
             cardsChosen[1].inPlay = false
