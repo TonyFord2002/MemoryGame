@@ -5,11 +5,14 @@ function instructions(){
     alert("If they don't then it is Player 2's turn to pick two cards.")
     alert("The game ends when all cards have been matched up.")
 }
-var name1
-var name2
 
 var btn = document.getElementById('startGame')
 btn.addEventListener('click', instructions)
+
+
+//Insert player names
+var name1
+var name2
 
 function getName() {
     do {
@@ -32,10 +35,7 @@ function getName2() {
   
   getName2();
   
-
-
-
-//List instructions or skip instructions if playing again
+//create player classes
 class Player1{
     constructor(score, turn, win){
     this.score=score
@@ -135,6 +135,7 @@ const cardsArray=[
     place:""}
 ]
 
+//Create players and initalize variables to be used
 let first = new Player1(0, true, false)
 let second = new Player2(0, false, false)
 let cardsWon = []
@@ -142,6 +143,7 @@ let cardsChosen = []
 let place1=''
 let place2=''
 
+//Shuffle cards to random places on the board
 function randomCards() {
     for (let i = cardsArray.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -154,7 +156,7 @@ function randomCards() {
 
 randomCards()
 
-
+//Make every card clickable and assign values to use when they are clicked
 let myImage1a = document.querySelector('.word1a');
 myImage1a.onclick = function() {
         let mySrc = myImage1a.getAttribute('src');
@@ -348,7 +350,7 @@ myImage8b.onclick = function() {
 }
 
 
-    //Compare the two cards and check for a match
+    //Compare the two cards, check for a match, and pass to the next player
     function compareCards(){
         while(first.turn === true && cardsChosen.length === 2){
           if(cardsChosen[0].name === cardsChosen[1].name){
@@ -398,11 +400,13 @@ while(second.turn === true && cardsChosen.length === 2){
 }
     }
 
-
+//Turn cards back over after being picked
 function turnCardsBackOver(){  
     document.querySelector(place1).setAttribute ('src', 'images/Back.png') 
     document.querySelector(place2).setAttribute ('src', 'images/Back.png')
 }
+
+//Declare the winner of the game
 function winner(){
     if(cardsWon.length === 16 && first.score > second.score){
         alert(JSON.stringify(name1) + ' wins!')
@@ -412,7 +416,7 @@ function winner(){
         alert('Both players win!')
     }
 }
-
+//Reset the game board and get two new players
 function reset(){
    let newBoard = document.querySelectorAll('.card')
    newBoard.forEach(e => {
