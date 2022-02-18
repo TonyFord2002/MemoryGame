@@ -133,14 +133,14 @@ let myImage1a = document.querySelector('.word1a');
 myImage1a.onclick = function() {
         let mySrc = myImage1a.getAttribute('src');
         if(mySrc === 'images/Back.png') {
-    myImage1a.setAttribute ('src', cardsArray[0].img);
+    myImage1a.setAttribute('src', cardsArray[0].img);
     cardsArray[0].place = '.word1a';
     cardsArray[0].inPlay = true;
     cardsChosen.push(cardsArray[0])
     //compareCards2();
     compareCards();
-} else {
-    myImage1a.setAttribute ('src','images/Back.png');
+// } else {
+//     myImage1a.setAttribute ('src','images/Back.png');
 }
 }
 
@@ -411,16 +411,29 @@ function turnCardsBackOver(){
     document.querySelector(place1).setAttribute ('src', 'images/Back.png') 
     document.querySelector(place2).setAttribute ('src', 'images/Back.png')
 }
+function winner(){
+    if(cardsWon.length === 16 && first.score > second.score){
+        alert('Player 1 wins!')
+    }else if(cardsWon.length === 16 && first.score < second.score){
+        alert('Player 2 wins!')
+    }else{
+        alert('Both players win!')
+    }
+}
 
+function reset(){
+    let newBoard = document.querySelectorAll('.card')
+    newBoard.forEach(e => {
+        e.setAttribute('src', 'images/Back.png')
+    });
+    cardsChosen =[]
+    cardsWon =[]
+    first.score = 0
+    second.score = 0
+    document.querySelector('#result1').innerHTML = `${first.score}`
+    document.querySelector('#result2').innerHTML = `${second.score}`
+    randomCards()
+}
 
-
-//If a match increase score on that player and go again
-
-
-//If not a match then turn over cards its the other players turn
-
-
-//If all cards are gone compare scores and declare winner
-
-
-//Ask to play again
+var resetGame = document.querySelector('#startOver')
+resetGame.addEventListener('click', reset)
