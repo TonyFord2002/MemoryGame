@@ -4,8 +4,8 @@ function instructions(){
     alert('Player 1 will go first and pick two cards. If they match Player 1 will go again.')
     alert("If they don't then it is Player 2's turn to pick two cards.")
     alert("The game ends when all cards have been matched up.")
-
 }
+
 var btn = document.getElementById('startGame')
 btn.addEventListener('click', instructions)
 
@@ -13,22 +13,18 @@ btn.addEventListener('click', instructions)
 
 //List instructions or skip instructions if playing again
 class Player1{
-    constructor(score, turn, choice1, choice2, win){
+    constructor(score, turn, win){
     this.score=score
-    this.turn=true
-    this.choice1=choice1
-    this.choice2=choice2
-    this.win=true
+    this.turn=turn
+    this.win=win
 }
 }
 
 class Player2{
-    constructor(score, turn, choice1, choice2, win){
+    constructor(score, turn, win){
         this.score=score
-        this.turn=false
-        this.choice1=choice1
-        this.choice2=choice2
-        this.win=true
+        this.turn=turn
+        this.win=win
     }
 }
 //Make cards
@@ -115,10 +111,8 @@ const cardsArray=[
     place:""}
 ]
 
-let first = new Player1
-let second = new Player2
-first.score = 0
-second.score = 0
+let first = new Player1(0, true, false)
+let second = new Player2(0, false, false)
 let cardsWon = []
 let cardsChosen = []
 
@@ -359,60 +353,65 @@ myImage8b.onclick = function() {
 }
 }
 
+let place1=''
+let place2=''
 
-//const totalCards = document.querySelectorAll('.card')
-//cardsChosen = Object.values(totalCards).map(c => c.inPlay === true)
-
-
-     var place1
-     var place2
-    
     //Compare the two cards and check for a match
     function compareCards(){
+     if(first.turn === true){   
         while(first.turn === true && cardsChosen.length === 2){
           if(cardsChosen[0].name === cardsChosen[1].name){
+              console.log(first.turn)
             first.score++
-            console.log(cardsChosen[0].place)
-            console.log(cardsChosen[1].place)
-            cardsChosen =[]
+            cardsChosen = []
             document.querySelector('#result1').innerHTML = `${first.score}`
-        
-            }else{
-                //first.turn = false
-                setTimeout(turnCardsBackOver, 2000)
-                cardsChosen[0].inPlay = false
-                cardsChosen[1].inPlay = false
-                console.log(cardsChosen[0].place)
-                console.log(cardsChosen[1].place)
-                cardsChosen = []
-                document.querySelector('#result2').innerHTML = "not a match"
+            cardsWon.push(cardsChosen[0])
+            cardsWon.push(cardsChosen[1])
+
+        }else{
+            first.turn = false
+            console.log(first.turn)
+            console.log(second.turn)
+            setTimeout(turnCardsBackOver, 2000)
+            cardsChosen[0].inPlay = false
+            cardsChosen[1].inPlay = false
+            place1 = cardsChosen[0].place
+            place2 = cardsChosen[1].place
+            console.log(second.turn)
+        }
+}
+}else{
+while(second.turn === true && cardsChosen.length === 2){
+    
+      if(cardsChosen[0].name === cardsChosen[1].name){
+        second.score++
+        cardsChosen = []
+        document.querySelector('#result2').innerHTML = `${second.score}`
+        cardsWon.push(cardsChosen[0])
+        cardsWon.push(cardsChosen[1])
+
+        }else{
+            second.turn = false
+            setTimeout(turnCardsBackOver, 2000)
+            cardsChosen[0].inPlay = false
+            cardsChosen[1].inPlay = false
+            place1 = cardsChosen[0].place
+            place2 = cardsChosen[1].place
+            }
+}
+}
+}
+
+function turnCardsBackOver(){  
+    document.querySelector(place1).setAttribute ('src', 'images/Back.png') 
+    document.querySelector(place2).setAttribute ('src', 'images/Back.png')
+    cardsChosen =[]
+    if(first.turn === true){
+        second.turn = true
+    }else{
+        first.turn = true
     }
 }
-}
-// while(second.turn === true && cardsChosen.length === 2){
-//     //if (cardsChosen.length === 2){
-//       if(cardsChosen[0].name === cardsChosen[1].name){
-//         second.score++
-     
-
-//         }else{
-//             second.turn = false
-//             cardsChosen[0].inPlay = false
-//             cardsChosen[1].inPlay = false
-//             setTimeout(turnCardsBackOver, 1000)
-//             }
-// }
-// }
-// }
-
-
-function turnCardsBackOver(){    
-    
-   document.querySelector('.word1a').setAttribute ('src', 'images/Back.png')
-   document.querySelector(cardsChosen[1].place).setAttribute ('src', 'images/Back.png')
-}
-
-
 
 //document.querySelector('#result2').innerHTML = `${second.score}`
 
